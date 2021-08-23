@@ -1,0 +1,8 @@
+FROM python:3.8
+COPY ./app /app
+COPY gunicorn.conf /
+ENV name=DockerName
+ENV hostip=postgres
+RUN pip install gunicorn
+RUN pip install -r /app/requirements.txt
+WORKDIR /app
